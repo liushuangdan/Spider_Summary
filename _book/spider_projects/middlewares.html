@@ -1,0 +1,1018 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>scrapy中的middlewares | 爬虫</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../spider_projects/框架中的代码运行脚本.html" />
+    
+    
+    <link rel="prev" href="../spider_projects/pipeline.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="10.11"
+        data-chapter-title="scrapy中的middlewares"
+        data-filepath="spider_projects/middlewares.md"
+        data-basepath=".."
+        data-revision="Wed Oct 17 2018 22:39:09 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="认识爬虫/introduceSpider.html">
+            
+                
+                    <a href="../认识爬虫/introduceSpider.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        认识爬虫
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="认识爬虫/http.html">
+            
+                
+                    <a href="../认识爬虫/http.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="认识爬虫/Requests.html">
+            
+                
+                    <a href="../认识爬虫/Requests.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        requests
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="认识爬虫/初步爬虫.html">
+            
+                
+                    <a href="../认识爬虫/初步爬虫.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        初步爬虫小项目
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="正则表达式/正则表达式.html">
+            
+                
+                    <a href="../正则表达式/正则表达式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        正则表达式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="正则表达式/正则表达式练习.html">
+            
+                
+                    <a href="../正则表达式/正则表达式练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        正则表达式练习
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="正则表达式/正则表达式之后的第一个项目.html">
+            
+                
+                    <a href="../正则表达式/正则表达式之后的第一个项目.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        正则表达式之后的第一个项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="正则表达式/正则表达式常用表.html">
+            
+                
+                    <a href="../正则表达式/正则表达式常用表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        正则表达式常用表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="正则表达式/正则表达式重点1.html">
+            
+                
+                    <a href="../正则表达式/正则表达式重点1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        正则表达式重点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="正则表达式/正则表达式常问问题.html">
+            
+                
+                    <a href="../正则表达式/正则表达式常问问题.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        正则表达式常问问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="正则表达式/正则爬虫练习.html">
+            
+                
+                    <a href="../正则表达式/正则爬虫练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        正则爬虫项目练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="XPATH/xpath-in.html">
+            
+                
+                    <a href="../XPATH/xpath-in.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        XPATH
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="XPATH/Xpath.html">
+            
+                
+                    <a href="../XPATH/Xpath.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        XPATH认识
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="XPATH/Xpath的代码例子.html">
+            
+                
+                    <a href="../XPATH/Xpath的代码例子.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        XPATH的代码例子
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="XPATH/xpath的爬虫练习.html">
+            
+                
+                    <a href="../XPATH/xpath的爬虫练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        XPATH的爬虫练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="BeautifulSoup/BeautifulSoup.html">
+            
+                
+                    <a href="../BeautifulSoup/BeautifulSoup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        BeautifulSoup
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="BeautifulSoup/常用的css选择器.html">
+            
+                
+                    <a href="../BeautifulSoup/常用的css选择器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        常用的css选择器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="BeautifulSoup/BeautifulSoup4的各种例子.html">
+            
+                
+                    <a href="../BeautifulSoup/BeautifulSoup4的各种例子.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        BeautifulSoup4的各种例子
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="proxy.html">
+            
+                
+                    <a href="../proxy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ip代理池项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="Selenium/Selenium.html">
+            
+                
+                    <a href="../Selenium/Selenium.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Selenium
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="进程线程协程/introduce.html">
+            
+                
+                    <a href="../进程线程协程/introduce.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        进程线程协程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="进程线程协程/gevent.html">
+            
+                
+                    <a href="../进程线程协程/gevent.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        gevent
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="进程线程协程/green_let.html">
+            
+                
+                    <a href="../进程线程协程/green_let.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        green_let
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="进程线程协程/yield.html">
+            
+                
+                    <a href="../进程线程协程/yield.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        yield
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="进程线程协程/multiprecessing.html">
+            
+                
+                    <a href="../进程线程协程/multiprecessing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        multiprecessing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="进程线程协程/threading.html">
+            
+                
+                    <a href="../进程线程协程/threading.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        threading
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="scrapy框架/scrapy.html">
+            
+                
+                    <a href="../scrapy框架/scrapy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Scrapy
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="scrapy框架/scrapy_setting.html">
+            
+                
+                    <a href="../scrapy框架/scrapy_setting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        scrapy_setting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="scrapy框架/模块作用.html">
+            
+                
+                    <a href="../scrapy框架/模块作用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        模块作用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="scrapy框架/19个中间件.html">
+            
+                
+                    <a href="../scrapy框架/19个中间件.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        19个中间件
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="scrapy-redis分布式/scrapy-redis.html">
+            
+                
+                    <a href="../scrapy-redis分布式/scrapy-redis.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        scrapy-redis分布式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="scrapy-redis分布式/scrapy-redis的改造方法.html">
+            
+                
+                    <a href="../scrapy-redis分布式/scrapy-redis的改造方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        scrapy-redis的改造方法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="spider_projects/introduce.html">
+            
+                
+                    <a href="../spider_projects/introduce.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        spider_projects
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="spider_projects/使用代理在普通爬虫脚本下.html">
+            
+                
+                    <a href="../spider_projects/使用代理在普通爬虫脚本下.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        使用代理在普通爬虫脚本下
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="spider_projects/xpath爬取前程无忧的数据.html">
+            
+                
+                    <a href="../spider_projects/xpath爬取前程无忧的数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        xpath爬取前程无忧的数据
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="spider_projects/存储数据库的脚本.html">
+            
+                
+                    <a href="../spider_projects/存储数据库的脚本.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        存储数据库的脚本
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="spider_projects/weibo.html">
+            
+                
+                    <a href="../spider_projects/weibo.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        爬取央视新闻微博
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="spider_projects/weibo2.html">
+            
+                
+                    <a href="../spider_projects/weibo2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        爬取明星的微博
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.6" data-path="spider_projects/liepin.html">
+            
+                
+                    <a href="../spider_projects/liepin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                        爬取猎聘的职位信息Crawl
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.7" data-path="spider_projects/zhilianRe.html">
+            
+                
+                    <a href="../spider_projects/zhilianRe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.7.</b>
+                        
+                        纯正则爬取智联的职位信息
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.8" data-path="spider_projects/setting.html">
+            
+                
+                    <a href="../spider_projects/setting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.8.</b>
+                        
+                        scrapy中的setting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.9" data-path="spider_projects/items.html">
+            
+                
+                    <a href="../spider_projects/items.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.9.</b>
+                        
+                        scrapy中的items
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.10" data-path="spider_projects/pipeline.html">
+            
+                
+                    <a href="../spider_projects/pipeline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.10.</b>
+                        
+                        scrapy中的pipeline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="10.11" data-path="spider_projects/middlewares.html">
+            
+                
+                    <a href="../spider_projects/middlewares.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.</b>
+                        
+                        scrapy中的middlewares
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.12" data-path="spider_projects/框架中的代码运行脚本.html">
+            
+                
+                    <a href="../spider_projects/框架中的代码运行脚本.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.</b>
+                        
+                        框架中的代码运行脚本
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >爬虫</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x8BBE;&#x7F6E;-&#x4EE3;&#x7406;">&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x8BBE;&#x7F6E; &#x4EE3;&#x7406;</h1>
+<pre><code class="lang-python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
+
+<span class="hljs-comment"># Define here the models for your spider middleware</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># See documentation in:</span>
+<span class="hljs-comment"># https://doc.scrapy.org/en/latest/topics/spider-middleware.html</span>
+
+<span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> signals
+<span class="hljs-keyword">from</span> twisted.internet.defer <span class="hljs-keyword">import</span> DeferredLock
+<span class="hljs-keyword">import</span> base64
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProjectsSpiderMiddleware</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># Not all methods need to be defined. If a method is not defined,</span>
+    <span class="hljs-comment"># scrapy acts as if the spider middleware does not modify the</span>
+    <span class="hljs-comment"># passed objects.</span>
+
+<span class="hljs-decorator">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_crawler</span><span class="hljs-params">(cls, crawler)</span>:</span>
+        <span class="hljs-comment"># This method is used by Scrapy to create your spiders.</span>
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        <span class="hljs-keyword">return</span> s
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_spider_input</span><span class="hljs-params">(self, response, spider)</span>:</span>
+        <span class="hljs-comment"># Called for each response that goes through the spider</span>
+        <span class="hljs-comment"># middleware and into the spider.</span>
+
+        <span class="hljs-comment"># Should return None or raise an exception.</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_spider_output</span><span class="hljs-params">(self, response, result, spider)</span>:</span>
+        <span class="hljs-comment"># Called with the results returned from the Spider, after</span>
+        <span class="hljs-comment"># it has processed the response.</span>
+
+        <span class="hljs-comment"># Must return an iterable of Request, dict or Item objects.</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> result:
+            <span class="hljs-keyword">yield</span> i
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_spider_exception</span><span class="hljs-params">(self, response, exception, spider)</span>:</span>
+        <span class="hljs-comment"># Called when a spider or process_spider_input() method</span>
+        <span class="hljs-comment"># (from other spider middleware) raises an exception.</span>
+
+        <span class="hljs-comment"># Should return either None or an iterable of Response, dict</span>
+        <span class="hljs-comment"># or Item objects.</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_start_requests</span><span class="hljs-params">(self, start_requests, spider)</span>:</span>
+        <span class="hljs-comment"># Called with the start requests of the spider, and works</span>
+        <span class="hljs-comment"># similarly to the process_spider_output() method, except</span>
+        <span class="hljs-comment"># that it doesn&#x2019;t have a response associated.</span>
+
+        <span class="hljs-comment"># Must return only requests (not items).</span>
+        <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> start_requests:
+            <span class="hljs-keyword">yield</span> r
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spider_opened</span><span class="hljs-params">(self, spider)</span>:</span>
+        spider.logger.info(<span class="hljs-string">&apos;Spider opened: %s&apos;</span> % spider.name)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProjectsDownloaderMiddleware</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># Not all methods need to be defined. If a method is not defined,</span>
+    <span class="hljs-comment"># scrapy acts as if the downloader middleware does not modify the</span>
+    <span class="hljs-comment"># passed objects.</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.lock = DeferredLock()
+        self.proxy = <span class="hljs-string">&apos;&apos;</span>
+        self.need_chnage_proxy = <span class="hljs-keyword">True</span>
+
+<span class="hljs-decorator">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_crawler</span><span class="hljs-params">(cls, crawler)</span>:</span>
+        <span class="hljs-comment"># This method is used by Scrapy to create your spiders.</span>
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        <span class="hljs-keyword">return</span> s
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request</span><span class="hljs-params">(self, request, spider)</span>:</span>
+        <span class="hljs-comment"># Called for each request that goes through the downloader</span>
+        <span class="hljs-comment"># middleware.</span>
+        self.lock.acquire()
+        <span class="hljs-keyword">if</span> self.need_chnage_proxy:
+            self.proxy = self.new_proxy()
+            self.need_chnage_proxy = <span class="hljs-keyword">False</span>
+        request.meta[<span class="hljs-string">&apos;proxy&apos;</span>] = self.proxy
+        print(self.proxy)
+        self.lock.release()
+
+        <span class="hljs-comment"># Must either:</span>
+        <span class="hljs-comment"># - return None: continue processing this request</span>
+        <span class="hljs-comment"># - or return a Response object</span>
+        <span class="hljs-comment"># - or return a Request object</span>
+        <span class="hljs-comment"># - or raise IgnoreRequest: process_exception() methods of</span>
+        <span class="hljs-comment">#   installed downloader middleware will be called</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_response</span><span class="hljs-params">(self, request, response, spider)</span>:</span>
+        <span class="hljs-comment"># Called with the response returned from the downloader.</span>
+        self.lock.acquire()
+        <span class="hljs-keyword">if</span> response.status != <span class="hljs-number">200</span>:
+            self.need_chnage_proxy = <span class="hljs-keyword">True</span>
+            self.lock.release()
+            <span class="hljs-keyword">return</span> request
+        self.lock.release()
+        <span class="hljs-comment"># Must either;</span>
+        <span class="hljs-comment"># - return a Response object</span>
+        <span class="hljs-comment"># - return a Request object</span>
+        <span class="hljs-comment"># - or raise IgnoreRequest</span>
+        <span class="hljs-keyword">return</span> response
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_exception</span><span class="hljs-params">(self, request, exception, spider)</span>:</span>
+        <span class="hljs-comment"># Called when a download handler or a process_request()</span>
+        <span class="hljs-comment"># (from other downloader middleware) raises an exception.</span>
+        self.lock.acquire()
+        self.need_chnage_proxy = <span class="hljs-keyword">True</span>
+        self.lock.release()
+        <span class="hljs-comment"># Must either:</span>
+        <span class="hljs-comment"># - return None: continue processing this exception</span>
+        <span class="hljs-comment"># - return a Response object: stops process_exception() chain</span>
+        <span class="hljs-comment"># - return a Request object: stops process_exception() chain</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spider_opened</span><span class="hljs-params">(self, spider)</span>:</span>
+        spider.logger.info(<span class="hljs-string">&apos;Spider opened: %s&apos;</span> % spider.name)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_proxy</span><span class="hljs-params">(self)</span>:</span>
+        url = <span class="hljs-string">&apos;http://dps.kdlapi.com/api/getdps/?orderid=923732543439561&amp;num=1&amp;pt=1&amp;ut=1&amp;dedup=1&amp;sep=1&apos;</span>
+        <span class="hljs-keyword">import</span> requests
+        response = requests.get(url)
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;http://&apos;</span> + response.text
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../spider_projects/pipeline.html" class="navigation navigation-prev " aria-label="Previous page: scrapy中的pipeline"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../spider_projects/框架中的代码运行脚本.html" class="navigation navigation-next " aria-label="Next page: 框架中的代码运行脚本"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

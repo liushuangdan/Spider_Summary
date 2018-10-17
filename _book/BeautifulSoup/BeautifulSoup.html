@@ -1,0 +1,1042 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>BeautifulSoup | 爬虫</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../BeautifulSoup/常用的css选择器.html" />
+    
+    
+    <link rel="prev" href="../XPATH/xpath的爬虫练习.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4"
+        data-chapter-title="BeautifulSoup"
+        data-filepath="BeautifulSoup/BeautifulSoup.md"
+        data-basepath=".."
+        data-revision="Wed Oct 17 2018 22:39:09 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        序言
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="认识爬虫/introduceSpider.html">
+            
+                
+                    <a href="../认识爬虫/introduceSpider.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        认识爬虫
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="认识爬虫/http.html">
+            
+                
+                    <a href="../认识爬虫/http.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="认识爬虫/Requests.html">
+            
+                
+                    <a href="../认识爬虫/Requests.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        requests
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="认识爬虫/初步爬虫.html">
+            
+                
+                    <a href="../认识爬虫/初步爬虫.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        初步爬虫小项目
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="正则表达式/正则表达式.html">
+            
+                
+                    <a href="../正则表达式/正则表达式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        正则表达式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="正则表达式/正则表达式练习.html">
+            
+                
+                    <a href="../正则表达式/正则表达式练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        正则表达式练习
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="正则表达式/正则表达式之后的第一个项目.html">
+            
+                
+                    <a href="../正则表达式/正则表达式之后的第一个项目.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        正则表达式之后的第一个项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="正则表达式/正则表达式常用表.html">
+            
+                
+                    <a href="../正则表达式/正则表达式常用表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        正则表达式常用表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="正则表达式/正则表达式重点1.html">
+            
+                
+                    <a href="../正则表达式/正则表达式重点1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        正则表达式重点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="正则表达式/正则表达式常问问题.html">
+            
+                
+                    <a href="../正则表达式/正则表达式常问问题.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        正则表达式常问问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="正则表达式/正则爬虫练习.html">
+            
+                
+                    <a href="../正则表达式/正则爬虫练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        正则爬虫项目练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="XPATH/xpath-in.html">
+            
+                
+                    <a href="../XPATH/xpath-in.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        XPATH
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="XPATH/Xpath.html">
+            
+                
+                    <a href="../XPATH/Xpath.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        XPATH认识
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="XPATH/Xpath的代码例子.html">
+            
+                
+                    <a href="../XPATH/Xpath的代码例子.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        XPATH的代码例子
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="XPATH/xpath的爬虫练习.html">
+            
+                
+                    <a href="../XPATH/xpath的爬虫练习.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        XPATH的爬虫练习
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="4" data-path="BeautifulSoup/BeautifulSoup.html">
+            
+                
+                    <a href="../BeautifulSoup/BeautifulSoup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        BeautifulSoup
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="BeautifulSoup/常用的css选择器.html">
+            
+                
+                    <a href="../BeautifulSoup/常用的css选择器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        常用的css选择器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="BeautifulSoup/BeautifulSoup4的各种例子.html">
+            
+                
+                    <a href="../BeautifulSoup/BeautifulSoup4的各种例子.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        BeautifulSoup4的各种例子
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="proxy.html">
+            
+                
+                    <a href="../proxy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        ip代理池项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="Selenium/Selenium.html">
+            
+                
+                    <a href="../Selenium/Selenium.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Selenium
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="进程线程协程/introduce.html">
+            
+                
+                    <a href="../进程线程协程/introduce.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        进程线程协程
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="进程线程协程/gevent.html">
+            
+                
+                    <a href="../进程线程协程/gevent.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        gevent
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="进程线程协程/green_let.html">
+            
+                
+                    <a href="../进程线程协程/green_let.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        green_let
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="进程线程协程/yield.html">
+            
+                
+                    <a href="../进程线程协程/yield.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        yield
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="进程线程协程/multiprecessing.html">
+            
+                
+                    <a href="../进程线程协程/multiprecessing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        multiprecessing
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="进程线程协程/threading.html">
+            
+                
+                    <a href="../进程线程协程/threading.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        threading
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="scrapy框架/scrapy.html">
+            
+                
+                    <a href="../scrapy框架/scrapy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Scrapy
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="scrapy框架/scrapy_setting.html">
+            
+                
+                    <a href="../scrapy框架/scrapy_setting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        scrapy_setting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="scrapy框架/模块作用.html">
+            
+                
+                    <a href="../scrapy框架/模块作用.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        模块作用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="scrapy框架/19个中间件.html">
+            
+                
+                    <a href="../scrapy框架/19个中间件.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        19个中间件
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="scrapy-redis分布式/scrapy-redis.html">
+            
+                
+                    <a href="../scrapy-redis分布式/scrapy-redis.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        scrapy-redis分布式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="scrapy-redis分布式/scrapy-redis的改造方法.html">
+            
+                
+                    <a href="../scrapy-redis分布式/scrapy-redis的改造方法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        scrapy-redis的改造方法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="spider_projects/introduce.html">
+            
+                
+                    <a href="../spider_projects/introduce.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        spider_projects
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="spider_projects/使用代理在普通爬虫脚本下.html">
+            
+                
+                    <a href="../spider_projects/使用代理在普通爬虫脚本下.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        使用代理在普通爬虫脚本下
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="spider_projects/xpath爬取前程无忧的数据.html">
+            
+                
+                    <a href="../spider_projects/xpath爬取前程无忧的数据.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        xpath爬取前程无忧的数据
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="spider_projects/存储数据库的脚本.html">
+            
+                
+                    <a href="../spider_projects/存储数据库的脚本.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        存储数据库的脚本
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="spider_projects/weibo.html">
+            
+                
+                    <a href="../spider_projects/weibo.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        爬取央视新闻微博
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="spider_projects/weibo2.html">
+            
+                
+                    <a href="../spider_projects/weibo2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        爬取明星的微博
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.6" data-path="spider_projects/liepin.html">
+            
+                
+                    <a href="../spider_projects/liepin.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                        爬取猎聘的职位信息Crawl
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.7" data-path="spider_projects/zhilianRe.html">
+            
+                
+                    <a href="../spider_projects/zhilianRe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.7.</b>
+                        
+                        纯正则爬取智联的职位信息
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.8" data-path="spider_projects/setting.html">
+            
+                
+                    <a href="../spider_projects/setting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.8.</b>
+                        
+                        scrapy中的setting
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.9" data-path="spider_projects/items.html">
+            
+                
+                    <a href="../spider_projects/items.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.9.</b>
+                        
+                        scrapy中的items
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.10" data-path="spider_projects/pipeline.html">
+            
+                
+                    <a href="../spider_projects/pipeline.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.10.</b>
+                        
+                        scrapy中的pipeline
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.11" data-path="spider_projects/middlewares.html">
+            
+                
+                    <a href="../spider_projects/middlewares.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.</b>
+                        
+                        scrapy中的middlewares
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.12" data-path="spider_projects/框架中的代码运行脚本.html">
+            
+                
+                    <a href="../spider_projects/框架中的代码运行脚本.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.</b>
+                        
+                        框架中的代码运行脚本
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >爬虫</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="beautifulsoup">BeautifulSoup</h1>
+<p>&#x6211;&#x4EEC;&#x5230;&#x7F51;&#x7AD9;&#x4E0A;&#x722C;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x722C;&#x53D6;&#x7684;&#xFF0C;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;&#x662F;&#x7F51;&#x9875;&#x4E0A;&#x4E0D;&#x4F1A;&#x53D8;&#x5316;&#x7684;&#x3002;</p>
+<p>Beautiful Soup&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x3001;python&#x5F0F;&#x7684;&#x51FD;&#x6570;&#x7528;&#x6765;&#x5904;&#x7406;&#x5BFC;&#x822A;&#x3001;&#x641C;&#x7D22;&#x3001;&#x4FEE;&#x6539;&#x5206;&#x6790;&#x6811;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x7BB1;&#xFF0C;&#x901A;&#x8FC7;&#x89E3;&#x6790;&#x6587;&#x6863;&#x4E3A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x9700;&#x8981;&#x6293;&#x53D6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x4E3A;&#x7B80;&#x5355;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x591A;&#x5C11;&#x4EE3;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x51FA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;<br></p>
+<p>Beautiful Soup&#x81EA;&#x52A8;&#x5C06;&#x8F93;&#x5165;&#x6587;&#x6863;&#x8F6C;&#x6362;&#x4E3A;Unicode&#x7F16;&#x7801;&#xFF0C;&#x8F93;&#x51FA;&#x6587;&#x6863;&#x8F6C;&#x6362;&#x4E3A;utf-8&#x7F16;&#x7801;&#x3002;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x9664;&#x975E;&#x6587;&#x6863;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;Beautiful Soup&#x5C31;&#x4E0D;&#x80FD;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x4E86;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x4F60;&#x4EC5;&#x4EC5;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#x539F;&#x59CB;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<p>&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#xFF1A;bs4.BeautifulSoup&#xFF0C; bs4.element.Tag, NavigableString</p>
+<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
+<pre><code class="lang-bash">pip install bs4
+</code></pre>
+<h2 id="bs4beautifulsoup&#xFF08;&#x7F8E;&#x5473;&#x6C64;&#xFF09;">bs4.BeautifulSoup&#xFF08;&#x7F8E;&#x5473;&#x6C64;&#xFF09;</h2>
+<p>bs4.BeautifulSoup, &#x7EE7;&#x627F;&#x81EA; Tag&#x3002;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;Tag&#x4E2D;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x53D8;&#x91CF;&#xFF0C;&#x5927;&#x591A;&#x90FD;&#x80FD;&#x5728; bs4.BeautifulSoup &#x4E2D;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code>
+html_str = &quot;&quot;&quot;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&apos;s story&lt;/b&gt;&lt;/p&gt;
+
+&lt;p class=&quot;story&quot;&gt;Once upon a time there were three little sisters; and their names were
+&lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+&lt;a href=&quot;http://example.com/lacie&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt; and
+&lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;
+and they lived at the bottom of a well.&lt;/p&gt;
+
+&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;
+&quot;&quot;&quot;
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(html_doc)
+type(soup)
+</code></pre><h2 id="elementtag&#x6807;&#x7B7E;">element.Tag(&#x6807;&#x7B7E;)</h2>
+<h3 id="name-attributes&#xFF08;&#x540D;&#x5B57;&#x548C;&#x5C5E;&#x6027;&#xFF09;">name, attributes&#xFF08;&#x540D;&#x5B57;&#x548C;&#x5C5E;&#x6027;&#xFF09;</h3>
+<p>&#x5C06; Tag &#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x540C;&#x6837;&#x653E;&#x5728; BeautifulSoup &#x7684;&#x7C7B;&#x4E2D;&#xFF0C;&#x8BD5;&#x4E0B;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x3002;</p>
+<pre><code># &#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x6807;&#x7B7E;
+p = soup.p
+# &#x6807;&#x7B7E;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x4EC0;&#x4E48;
+type(p)
+# &#x6807;&#x7B7E;&#x7684;&#x540D;&#x5B57;&#x662F;&#x4EC0;&#x4E48;
+p.name
+# &#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x5C5E;&#x6027;
+p.attrs
+# &#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x4FE1;&#x606F;
+p[&apos;class&apos;]
+# &#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x8BBE;&#x7F6E;&#x5C5E;&#x6027;&#x4FE1;&#x606F;
+p[&apos;id&apos;] = 1
+</code></pre><h3 id="multivalued-attributes&#xFF08;&#x591A;&#x503C;&#x5C5E;&#x6027;&#xFF09;">multi-valued attributes&#xFF08;&#x591A;&#x503C;&#x5C5E;&#x6027;&#xFF09;</h3>
+<pre><code>css_soup = BeautifulSoup(&apos;&lt;p class=&quot;body&quot;&gt;&lt;/p&gt;&apos;)
+css_soup.p[&apos;class&apos;]
+
+css_soup = BeautifulSoup(&apos;&lt;p class=&quot;body strikeout&quot;&gt;&lt;/p&gt;&apos;)
+css_soup.p[&apos;class&apos;]
+
+id_soup = BeautifulSoup(&apos;&lt;p id=&quot;my id&quot;&gt;&lt;/p&gt;&apos;)
+id_soup.p[&apos;id&apos;]
+</code></pre><h2 id="navigablestring-&#xFF08;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C;string&#x7684;&#x7C7B;&#x578B;&#xFF09;">NavigableString &#xFF08;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C;string&#x7684;&#x7C7B;&#x578B;&#xFF09;</h2>
+<pre><code>p.string
+type(p.string)
+p.string.parent
+
+str(p.string)
+type(str(p.string))
+</code></pre><h2 id="going-down&#x67E5;&#x627E;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x6807;&#x7B7E;">Going down(&#x67E5;&#x627E;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x6807;&#x7B7E;)</h2>
+<h3 id="using-tag-name&#xFF08;&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#xFF09;">using tag name&#xFF08;&#x901A;&#x8FC7;&#x6807;&#x7B7E;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#xFF09;</h3>
+<pre><code>soup.head
+soup.title
+soup.body.b
+</code></pre><h3 id="using-contents-and-children">using .contents and .children</h3>
+<p>contents &#x8FD4;&#x56DE;&#x7684;&#x662F; list
+children &#x8FD4;&#x56DE;&#x7684;&#x662F; list_iterator</p>
+<pre><code>soup.body.contents
+soup.body.children
+
+for child in soup.body:
+    print(child)
+</code></pre><h2 id="filters-&#xFF08;&#x8FC7;&#x6EE4;&#x5668;&#xFF09;">Filters &#xFF08;&#x8FC7;&#x6EE4;&#x5668;&#xFF09;</h2>
+<p>a string, a regular expression, a list, a function, or the value True.  </p>
+<pre><code>soup.find_all(&apos;b&apos;)
+import re
+for tag in soup.find_all(re.compile(&quot;^b&quot;)):
+    print(tag.name)
+for tag in soup.find_all(re.compile(&quot;t&quot;)):
+    print(tag.name)
+</code></pre><p>Definitions:  </p>
+<pre><code>find_all(name, attrs, recursive, string, limit, **kwargs)
+</code></pre><h3 id="name">name</h3>
+<p>tag name:   </p>
+<pre><code>soup.find_all(&quot;title&quot;)
+</code></pre><h3 id="keyword-arguments">keyword arguments</h3>
+<p>kwargs</p>
+<pre><code>soup.find_all(id=&apos;link2&apos;)
+soup.find_all(href=re.compile(&quot;elsie&quot;), id=&apos;link1&apos;)
+soup.find_all(id=True)
+soup.find_all(href=re.compile(&quot;elsie&quot;))
+
+data_soup = BeautifulSoup(&apos;&lt;div data-foo=&quot;value&quot;&gt;foo!&lt;/div&gt;&apos;)
+data_soup.find_all(data-foo=&quot;value&quot;)
+data_soup.find_all(attrs={&quot;data-foo&quot;: &quot;value&quot;})
+</code></pre><p>special</p>
+<pre><code>soup.find_all(&quot;a&quot;, class_=&quot;sister&quot;)
+soup.find_all(&quot;a&quot;, attrs={&quot;class&quot;: &quot;sister&quot;})
+</code></pre><h3 id="string">string</h3>
+<pre><code>soup.find_all(string=&quot;Elsie&quot;)
+soup.find_all(string=[&quot;Tillie&quot;, &quot;Elsie&quot;, &quot;Lacie&quot;])
+soup.find_all(string=re.compile(&quot;Dormouse&quot;))
+def is_the_only_string_within_a_tag(s):
+    return (s == s.parent.string)
+
+soup.find_all(string=is_the_only_string_within_a_tag)
+soup.find_all(&quot;a&quot;, string=&quot;Elsie&quot;)
+</code></pre><h3 id="limit">limit</h3>
+<pre><code>soup.find_all(&quot;a&quot;, limit=2)
+</code></pre><h3 id="recursive">recursive</h3>
+<pre><code>soup.html.find_all(&quot;title&quot;)
+soup.html.find_all(&quot;title&quot;, recursive=False)
+</code></pre><h3 id="calling-a-tag-like-a-function">Calling a tag like a function</h3>
+<pre><code>soup.find_all(&quot;a&quot;)
+soup(&quot;a&quot;)
+
+soup.title.find_all(string=True)
+soup.title(string=True)
+</code></pre><h3 id="find">find</h3>
+<pre><code>soup.find_all(&apos;title&apos;, limit=1)
+# [&lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;]
+
+soup.find(&apos;title&apos;)
+# &lt;title&gt;The Dormouse&apos;s story&lt;/title&gt;
+</code></pre><h3 id="css-selector">css selector</h3>
+<p>Tags find </p>
+<pre><code>soup.select(&quot;title&quot;)
+soup.select(&quot;p:nth-of-type(3)&quot;)
+</code></pre><p>class</p>
+<pre><code>soup.select(&quot;.sister&quot;)
+</code></pre><p>attribute</p>
+<pre><code>soup.select(&apos;a[href]&apos;)
+soup.select(&apos;a[href=&quot;http://example.com/elsie&quot;]&apos;)
+
+soup.select(&apos;a[href^=&quot;http://example.com/&quot;]&apos;)
+
+soup.select(&apos;a[href$=&quot;tillie&quot;]&apos;)
+
+soup.select(&apos;a[href*=&quot;.com/el&quot;]&apos;)
+</code></pre><h2 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2>
+<p>&#x683C;&#x5F0F;&#x7F16;&#x7801;&#x95EE;&#x9898;</p>
+<pre><code>BeautifulSoup(page, from_encoding=&apos;gb2312&apos;)
+</code></pre><p>&#x5982;&#x679C;&#x5728;&#x67D0;&#x4E2A;ul&#x4E0B;&#xFF0C;&#x6709;&#x591A;&#x4E2A;li&#xFF0C;&#x4E00;&#x534A;&#x662F;&#x6709;&#x6837;&#x5F0F;&#xFF0C;&#x4E00;&#x534A;&#x662F;&#x6CA1;&#x6709;&#x7684;&#xFF0C;&#x800C;&#x521A;&#x597D;&#x4ED6;&#x4EEC;&#x662F;&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#xFF0C;&#x4F60;&#x4E5F;&#x6070;&#x597D;&#x9700;&#x8981;&#x8FD9;&#x4E24;&#x4E2A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>html = &apos;&apos;&apos;
+    &lt;ul&gt;
+        &lt;li&gt;hello world!&lt;/li&gt;
+        &lt;li class=&quot;hh&quot;&gt;hello world!&lt;/li&gt;
+    &lt;/ul&gt;
+&apos;&apos;&apos;
+</code></pre><pre><code>from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(html,&apos;lxml&apos;)
+
+no_tag = soup.find(&apos;li&apos;,{&apos;class&apos;:False})
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../XPATH/xpath的爬虫练习.html" class="navigation navigation-prev " aria-label="Previous page: XPATH的爬虫练习"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../BeautifulSoup/常用的css选择器.html" class="navigation navigation-next " aria-label="Next page: 常用的css选择器"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
