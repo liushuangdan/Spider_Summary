@@ -23,7 +23,7 @@
     * [常用的css选择器](BeautifulSoup/常用的css选择器.md)
     * [BeautifulSoup4的各种例子](BeautifulSoup/BeautifulSoup4的各种例子.md)
 
-* [ip代理池项目](proxy.md)
+* [ip代理池项目](代理/proxy.md)
 
 * [Selenium](Selenium/Selenium.md)
 
