@@ -53,7 +53,7 @@
         data-chapter-title="使用代理在普通爬虫脚本下"
         data-filepath="spider_projects/使用代理在普通爬虫脚本下.md"
         data-basepath=".."
-        data-revision="Thu Oct 18 2018 22:34:59 GMT+0800 (中国标准时间)"
+        data-revision="Fri Oct 19 2018 08:44:08 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
     
 
@@ -805,6 +805,21 @@
             
         </li>
     
+        <li class="chapter " data-level="11" data-path="爬虫的面试题/面试题1-10.html">
+            
+                
+                    <a href="../爬虫的面试题/面试题1-10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        爬虫面试题
+                    </a>
+            
+            
+        </li>
+    
 
 
             
@@ -838,26 +853,38 @@
                 
                     <section class="normal" id="section-">
                     
-                        <pre><code class="lang-python"><span class="hljs-keyword">import</span> pymysql
+                        <h1 id="&#x5F53;&#x56E0;&#x8BBF;&#x95EE;&#x591A;&#x6B21;&#x800C;&#x5C01;&#x6389;ip&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4EE3;&#x7406;&#x722C;&#x53D6;&#x3002;">&#x5F53;&#x56E0;&#x8BBF;&#x95EE;&#x591A;&#x6B21;&#x800C;&#x5C01;&#x6389;IP&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4EE3;&#x7406;&#x722C;&#x53D6;&#x3002;</h1>
+<pre><code class="lang-python">
+<span class="hljs-keyword">import</span> requests
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MysqlHelper</span><span class="hljs-params">(object)</span>:</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProxy</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># 1. &#x5B58;&#x50A8;&#x4E00;&#x4E2A;proxy&#xFF0C; &#x9700;&#x8981;&#x7684;&#x662F;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#xFF0C; &#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x5C31;&#x653E;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#xFF0C;</span>
+    <span class="hljs-comment"># &#x6BCF;&#x6B21;&#x83B7;&#x53D6;proxy&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;proxy&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6BCF;&#x6B21;&#x90FD;&#x91CD;&#x65B0;&#x83B7;&#x53D6;proxy</span>
+    <span class="hljs-comment"># &#x5982;&#x679C;&#x51FA;&#x9519;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x4E00;&#x904D;proxy&#xFF0C;&#x540E;&#x9762;&#x4F7F;&#x7528;</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
-        self.conn = pymysql.connect(host=<span class="hljs-string">&apos;127.0.0.1&apos;</span>, port=<span class="hljs-number">3306</span>, user=<span class="hljs-string">&apos;root&apos;</span>, password=<span class="hljs-string">&apos;123456&apos;</span>, db=<span class="hljs-string">&apos;projects&apos;</span>, charset=<span class="hljs-string">&apos;utf8mb4&apos;</span>)
-        self.cursor = self.conn.cursor()
+        self.form_proxy = {}
+        self.need_change_proxy = <span class="hljs-keyword">True</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">execute_modify_sql</span><span class="hljs-params">(self, insert_sql, data)</span>:</span>
-        self.cursor.execute(insert_sql, data)
-        self.conn.commit()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_proxy</span><span class="hljs-params">(self)</span>:</span>
+        self.need_change_proxy = <span class="hljs-keyword">True</span>
+    <span class="hljs-comment"># &#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C; &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x53EF;&#x7528;&#x7684;&#x4EE3;&#x7406;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_one_proxy</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># &#x5982;&#x679C;need_change_proxy == True, &#x5C31;&#x8BF4;&#x660E;&#x9700;&#x8981;&#x65B0;&#x7684;proxy&#x505A;&#x66FF;&#x6362;</span>
+        <span class="hljs-keyword">if</span> self.need_change_proxy:
+            self.form_proxy = self.new_proxy()<span class="hljs-comment">#&#x9700;&#x8981;&#x5904;&#x7406;</span>
+            self.need_change_proxy = <span class="hljs-keyword">False</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__del__</span><span class="hljs-params">(self)</span>:</span>
-        self.cursor.close()
-        self.conn.close()
+        <span class="hljs-keyword">return</span> self.form_proxy
 
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
-    insert_sql = <span class="hljs-string">&apos;insert into renxing (c1, c2) values(%s, %s)&apos;</span>
-    data = (<span class="hljs-number">1</span>, <span class="hljs-string">&quot;&#x4E0D;&#x51C6;&#x4EFB;&#x6027;&apos;&quot;</span>)
-    helper = MysqlHelper()
-    helper.execute_modify_sql(insert_sql, data)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_proxy</span><span class="hljs-params">(self)</span>:</span>
+        url = <span class="hljs-string">&apos;&#x5FEB;&#x4EE3;&#x7406;&#x751F;&#x6210;&#x7684;&#x63A5;&#x53E3;&apos;</span>
+        response = requests.get(url)
+        myformproxy = {
+            <span class="hljs-string">&apos;http&apos;</span>: <span class="hljs-string">&apos;http://&apos;</span>+ response.text,
+            <span class="hljs-string">&apos;https&apos;</span>: <span class="hljs-string">&apos;http://&apos;</span> + response.text,
+        }
+
+        <span class="hljs-keyword">return</span> myformproxy
 </code></pre>
 
                     

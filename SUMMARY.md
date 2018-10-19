@@ -59,3 +59,5 @@
     * [scrapy中的pipeline](spider_projects/pipeline.md)
     * [scrapy中的middlewares](spider_projects/middlewares.md)
     * [框架中的代码运行脚本](spider_projects/框架中的代码运行脚本.md)
+
+* [爬虫面试题](爬虫的面试题/面试题1-10.md)
